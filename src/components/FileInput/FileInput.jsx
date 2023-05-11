@@ -5,7 +5,6 @@ import Card from '../Card/Card';
 
 const FileInput = ({ className }) => {
   const { dispatch } = useContext(DataContext);
-  const [file, setFile] = useState(null);
 
   const fileUpload = (e) => {
     loadFileData({

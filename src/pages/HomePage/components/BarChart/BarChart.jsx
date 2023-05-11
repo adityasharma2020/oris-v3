@@ -57,7 +57,7 @@ function BarChart() {
         };
       });
     }
-  }, [isCurrentFileLoading]);
+  }, [isCurrentFileLoading, currentFile]);
 
   return (
     <Card title='Pie chart'>

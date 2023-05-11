@@ -1,5 +1,4 @@
-import axios from "axios";
-import styles from "./ActivityChart.module.scss";
+import styles from './ActivityChart.module.scss';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,10 +8,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
-import { toast } from "react-hot-toast";
-import { useEffect, useState } from "react";
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { useState } from 'react';
 
 ChartJS.register(
   CategoryScale,
@@ -25,25 +23,24 @@ ChartJS.register(
 );
 
 function ActivityChart() {
-  const [dataLoading, setDataLoading] = useState(false);
-  const [data, setData] = useState({
-    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+  const [dataLoading] = useState(false);
+  const [data] = useState({
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
     datasets: [
       {
-        label: "First dataset",
+        label: 'First dataset',
         data: [33, 50, 41, 44],
-        borderColor: "#9BDD7C",
+        borderColor: '#9BDD7C',
         lineTension: 0.3,
       },
       {
-        label: "Second dataset",
+        label: 'Second dataset',
         data: [33, 25, 35, 46],
-        borderColor: "#E9A0A0",
+        borderColor: '#E9A0A0',
         lineTension: 0.3,
       },
     ],
   });
-
 
   return (
     <div className={styles.container}>
@@ -73,7 +70,7 @@ function ActivityChart() {
         <div className={styles.lineChart}>
           <Line
             data={data}
-            height="70"
+            height='70'
             options={{
               plugins: {
                 legend: {

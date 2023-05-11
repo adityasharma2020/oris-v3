@@ -3,7 +3,7 @@ import StatsCard from './components/StatsCard/StatsCard';
 
 import { ReactComponent as DnaIcon } from '../../assets/icons/dna_icon.svg';
 
-import ActivityChart from './components/ActivityChart/ActivityChart';
+// import ActivityChart from './components/ActivityChart/ActivityChart';
 import Summary from './components/Summary/Summary';
 import BarChart from './components/BarChart/BarChart';
 import { useContext } from 'react';
