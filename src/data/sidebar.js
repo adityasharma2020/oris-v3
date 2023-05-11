@@ -5,7 +5,7 @@ import { ReactComponent as SettingIcon } from '../assets/icons/setting_icon.svg'
 import { ReactComponent as CalculatorIcon } from '../assets/icons/calculator_icon.svg';
 import { ReactComponent as CumulativeIcon } from '../assets/icons/cumulative_icon.svg';
 
-export default sidebarData = [
+const sidebarData = [
   {
     title: 'OriginFinder',
     icon: <DashboardIcon />,
@@ -86,3 +86,5 @@ export default sidebarData = [
     ],
   },
 ];
+
+export default sidebarData;
