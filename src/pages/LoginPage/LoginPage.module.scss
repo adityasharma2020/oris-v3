@@ -1,0 +1,130 @@
+@import "../../assets/sass/main.scss";
+
+.container {
+  display: flex;
+  height: 100vh;
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 40%;
+    @include flexCenter;
+    background-color: $color-black;
+    color: $color-white;
+    
+    @include MonteBold;
+    font-size: 7.2rem;
+    line-height: 8.8rem;
+
+    @media only screen and (max-width: $bp-small) {
+       width: 100%;
+    }
+  }
+
+  .right {
+    width: 60%;
+    @include flexCenter;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      padding: 10rem 2rem;
+   }
+    .rightContainer {
+      width: 38rem;
+      @media only screen and (max-width: $bp-large) {
+        width: 50rem;
+      }
+
+      h1 {
+        @include MonteBold;
+        font-size: 3.6rem;
+        line-height: 4.4rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        @include LatoNormal;
+        margin-bottom: 2.5rem;
+      }
+      .signInButtons {
+        display: flex;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
+        .signInButton {
+          background: #ffffff;
+          border-radius: 1rem;
+          color: $color-grey;
+          padding: 0.5rem 2rem;
+
+          @include MonteNormal;
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+
+          @include flexCenter;
+          gap: 1rem;
+          cursor: pointer;
+        }
+      }
+
+      .signInContainer {
+        background: $color-white;
+        border-radius: 2rem;
+        padding: 3rem;
+        margin-bottom: 2rem;
+
+        .inputContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-bottom: 2rem;
+          label {
+            @include LatoNormal;
+            color: $color-black;
+          }
+          input {
+            border: none;
+            outline: none;
+            background: $color-background;
+            border-radius: 1rem;
+            @include LatoNormal;
+            color: $color-black;
+            padding: 1rem 1.5rem;
+          }
+          input:focus {
+            outline: none;
+          }
+        }
+
+        .forgot {
+          @include LatoNormal;
+          color: $color-link;
+          margin-bottom: 2rem;
+          cursor: pointer;
+        }
+
+        .signInButton {
+          background: $color-black;
+          border-radius: 1rem;
+          border: none;
+          color: $color-white;
+          width: 100%;
+          padding: 1rem 0;
+          @include MonteBold;
+          font-size: 1.6rem;
+          line-height: 2rem;
+        }
+      }
+
+      .registerText {
+        @include LatoNormal;
+        text-align: center;
+        color: $color-grey;
+        
+        span {
+          color: $color-link;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

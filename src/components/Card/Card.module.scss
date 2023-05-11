@@ -1,0 +1,39 @@
+@import "../../assets//sass/main.scss";
+
+.card {
+  width: 100%;
+  background: $color-white;
+  border-radius: 2rem;
+  padding: 3rem 4rem;
+
+  &Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    h1 {
+      @include MonteBold;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+
+    .subTitle {
+      @include flexCenter;
+      gap: 0.5rem;
+      cursor: pointer;
+      p {
+        @include MonteNormal;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+      }
+      &Icon {
+        padding-left: 0.5rem;
+      }
+      .rotateIcon {
+        transform: rotate(-90deg);
+        padding-left: 0;
+      }
+    }
+  }
+}

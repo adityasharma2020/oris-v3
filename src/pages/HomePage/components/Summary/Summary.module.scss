@@ -1,0 +1,31 @@
+@import '../../../../assets/sass/main.scss';
+
+.schedule {
+  border-left: 0.5rem solid $color-grey;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+
+  h5 {
+    @include LatoBold;
+    color: $color-grey-dark-1;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    @include LatoNormal;
+    color: #999999;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.link {
+  @include LatoNormal;
+  color: #999999;
+  border: 2px dotted #999999;
+  border-radius: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}

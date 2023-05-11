@@ -1,0 +1,87 @@
+@import '../../assets/sass/main.scss';
+
+.container {
+  padding: 6rem 3rem;
+  background-color: $color-black;
+  color: $color-white;
+  border-radius: 3rem;
+  height: calc(100vh - 8rem);
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  position: sticky;
+  top: 4rem;
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
+  h1 {
+    @include MonteBold;
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+    margin-bottom: 3rem;
+    padding-left: 1rem;
+  }
+  .navItems {
+    display: flex;
+    flex-direction: column;
+
+    .sidebarItem {
+      display: block;
+      @include MonteNormal;
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+      color: $color-white;
+      margin-bottom: 1rem;
+      &:hover {
+        cursor: pointer;
+        @include MonteBold;
+      }
+      padding-left: 1rem;
+      margin-top: 2rem;
+    }
+    .sidebarTitle {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .up {
+      transform: rotate(180deg);
+    }
+    .sidebarTitles {
+      display: flex;
+      @include MonteNormal;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      color: $color-white;
+      justify-content: space-between;
+    }
+    .sidebarContent {
+      padding-top: 0.25em;
+      height: 0;
+      overflow: hidden;
+    }
+    .sidebarItem.open > .sidebarContent {
+      height: auto;
+      // padding-top: 2rem;
+    }
+  }
+  .bottomTexts {
+    @include MonteNormal;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    margin-top: 4rem;
+    p {
+      cursor: pointer;
+    }
+    p:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}

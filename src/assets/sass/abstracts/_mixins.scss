@@ -1,0 +1,32 @@
+@mixin textOverflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin MonteNormal {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+@mixin LatoNormal {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+}
+
+@mixin MonteBold {
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+@mixin LatoBold {
+  font-family: "Lato";
+  font-weight: 700;
+}

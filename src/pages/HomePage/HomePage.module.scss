@@ -1,0 +1,49 @@
+@import '../../assets/sass/main.scss';
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 3.7rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+.bottomCards {
+  display: flex;
+  gap: 3.7rem;
+  margin-top: 4rem;
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
+}
+.fileViewContainer {
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 45rem;
+
+  background-color: $color-white;
+  border-radius: 2rem;
+  margin: 4rem 0;
+  padding: 3rem 4rem;
+
+  .chartHeader {
+    @include MonteBold;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-top: 3rem;
+    word-break: break-all;
+  }
+}

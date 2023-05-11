@@ -1,0 +1,32 @@
+@import '../../assets/sass/main.scss';
+
+.fileupload {
+  height: calc(100vh - 16rem);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 4rem;
+
+  .inputCard {
+    flex: 1;
+    .inputContainer {
+      height: 80%;
+      @include flexCenter;
+    }
+  }
+
+  .fileuploads {
+    display: flex;
+    gap: 2rem;
+    .file {
+      @include LatoNormal;
+      color: #6972c4;
+      border: 2px dotted #6972c4;
+      border-radius: 0.5rem;
+      width: fit-content;
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../../../assets/sass/main.scss';
+
+.pieChart {
+  height: 15rem;
+  display: flex;
+  gap: 4rem;
+
+  @media only screen and (max-width: $bp-smallest) {
+    height: 20rem;
+  }
+
+  .labels {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+
+    .label {
+      display: flex;
+      gap: 1rem;
+      .sign {
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        margin-top: 0.3rem;
+      }
+      .value {
+        h5 {
+          @include MonteBold;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          @include LatoNormal;
+          color: #858585;
+        }
+      }
+    }
+  }
+}
