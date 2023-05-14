@@ -1,4 +1,4 @@
-@import '../../assets/sass/main.scss';
+@import "../../assets/sass/main.scss";
 
 .container {
   padding: 6rem 3rem;
@@ -21,12 +21,14 @@
     width: 100%;
   }
 
-  h1 {
+  .header {
     @include MonteBold;
     font-size: 3.6rem;
     line-height: 4.4rem;
     margin-bottom: 3rem;
     padding-left: 1rem;
+    color: $color-white;
+    display: block;
   }
   .navItems {
     display: flex;

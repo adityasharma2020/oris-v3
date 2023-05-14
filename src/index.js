@@ -4,6 +4,7 @@ import './assets/sass/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataContextProvider } from './context/DataContext';
+import 'rodal/lib/rodal.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

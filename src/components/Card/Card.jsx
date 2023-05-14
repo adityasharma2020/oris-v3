@@ -1,10 +1,14 @@
-import styles from './Card.module.scss';
+import styles from "./Card.module.scss";
 
-import { ReactComponent as ChevronIcon } from '../../assets/icons/bottom_chevron.svg';
+import { forwardRef } from "react";
+import { ReactComponent as ChevronIcon } from "../../assets/icons/bottom_chevron.svg";
 
-function Card({ children, title, subTitle, type, className }) {
+const Card = forwardRef(function Card(
+  { children, title, subTitle, type, className },
+  ref
+) {
   return (
-    <div className={`${styles.card} ${className}`}>
+    <div className={`${styles.card} ${className}`} ref={ref}>
       <div className={styles.cardHeader}>
         <h1>{title}</h1>
         {subTitle ? (
@@ -12,7 +16,7 @@ function Card({ children, title, subTitle, type, className }) {
             <p> {subTitle} </p>
             <div
               className={
-                type === 'navigation'
+                type === "navigation"
                   ? `${styles.subTitleIcon} ${styles.rotateIcon}`
                   : styles.subTitleIcon
               }
@@ -25,6 +29,6 @@ function Card({ children, title, subTitle, type, className }) {
       {children}
     </div>
   );
-}
+});
 
 export default Card;

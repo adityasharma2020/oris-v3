@@ -1,4 +1,4 @@
-@import '../../assets/sass/main.scss';
+@import "../../assets/sass/main.scss";
 
 .fileupload {
   height: calc(100vh - 16rem);
@@ -10,9 +10,60 @@
 
   .inputCard {
     flex: 1;
-    .inputContainer {
-      height: 80%;
-      @include flexCenter;
+
+    .dropContainer {
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 6rem);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 2px dashed #555;
+      color: #444;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+
+      &:hover {
+        background: #eee;
+        border-color: #111;
+      }
+      &:hover .dropTitle {
+        color: #222;
+      }
+      .dropTitle {
+        color: #444;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        transition: color 0.2s ease-in-out;
+      }
+      input[type="file"] {
+        width: 350px;
+        max-width: 100%;
+        color: #444;
+        padding: 0.5rem;
+        background: #fff;
+        border-radius: 1rem;
+        border: 1px solid #555;
+      }
+
+      input[type="file"]::file-selector-button {
+        margin-right: 2rem;
+        border: none;
+        background: $color-black;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+      }
+
+      input[type="file"]::file-selector-button:hover {
+        background: #6972c4;
+      }
     }
   }
 

@@ -81,7 +81,7 @@ const sidebarData = [
       {
         title: 'Sequence Search',
         icon: <PatternSearchIcon />,
-        path: '/search-sequence',
+        path: '/SearchSequence',
       },
     ],
   },

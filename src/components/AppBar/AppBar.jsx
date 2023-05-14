@@ -1,7 +1,7 @@
 import styles from "./AppBar.module.scss";
-import { ReactComponent as BellIcon } from "../../../../assets/icons/bell_icon.svg";
-import { ReactComponent as SearchIcon } from "../../../../assets/icons/search_icon.svg";
-import UserImage from "../../../../assets/icons/user_image.png";
+import { ReactComponent as BellIcon } from "../../assets/icons/bell_icon.svg";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search_icon.svg";
+import UserImage from "../../assets/icons/user_image.png";
 
 function AppBar() {
   const profilePic = localStorage.getItem("listed-profilePic");

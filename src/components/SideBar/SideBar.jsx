@@ -1,17 +1,19 @@
-import styles from './SideBar.module.scss';
-import { useState } from 'react';
+import styles from "./SideBar.module.scss";
+import { useState } from "react";
 
-import sidebarData from '../../data/sidebar';
+import sidebarData from "../../data/sidebar";
 
-import { ReactComponent as ChevronIcon } from '../../assets/icons/bottom_chevron.svg';
+import { ReactComponent as ChevronIcon } from "../../assets/icons/bottom_chevron.svg";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Oris.</h1>
+        <Link to={"/"} about="h1" className={styles.header}>
+          Oris.
+        </Link>
 
         <div className={styles.navItems}>
           {sidebarData.map((item, index) => (
@@ -43,7 +45,7 @@ function SidebarItem({ item }) {
             {item.icon && item.icon}
             {item.title}
           </div>
-          <div className={open ? styles.up : ''}>
+          <div className={open ? styles.up : ""}>
             <ChevronIcon />
           </div>
         </div>
@@ -57,7 +59,7 @@ function SidebarItem({ item }) {
   } else {
     return (
       <Link
-        to={item.path || '#'}
+        to={item.path || "#"}
         className={`${styles.sidebarItem} ${styles.plain}`}
       >
         <div className={styles.sidebarTitle}>
