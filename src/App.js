@@ -9,6 +9,7 @@ import styles from "./App.module.scss";
 import GcSkewPage from "./pages/GcSkewPage/GcSkewPage";
 import AtSkewPage from "./pages/AtSkewPage/AtSkewPage";
 import SearchSequencePage from "./pages/SearchSequencePage/SearchSequencePage";
+import SkewCalculator from "./pages/SkewCalculator/SkewCalculator";
 
 function App() {
   return (
@@ -40,9 +41,10 @@ function ProtectedRoutes() {
         <AppBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/GcSkew" element={<GcSkewPage />} />
-          <Route path="/AtSkew" element={<AtSkewPage />} />
-          <Route path="/SearchSequence" element={<SearchSequencePage />} />
+          <Route path="/gc-skew" element={<GcSkewPage />} />
+          <Route path="/at-skew" element={<AtSkewPage />} />
+          <Route path="/search-sequence" element={<SearchSequencePage />} />
+          <Route path="/skew-calculator" element={<SkewCalculator />} />
         </Routes>
       </div>
     </div>

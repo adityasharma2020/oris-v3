@@ -43,12 +43,12 @@ const sidebarData = [
           {
             title: 'GC Skew',
             icon: <SkewIcon />,
-            path: '/GcSkew',
+            path: '/gc-skew',
           },
           {
             title: 'AT Skew',
             icon: <SkewIcon />,
-            path: '/AtSkew',
+            path: '/at-skew',
           },
           {
             title: 'MK Skew',
@@ -70,7 +70,7 @@ const sidebarData = [
       {
         title: 'Skew Calculator',
         icon: <CalculatorIcon />,
-        path: '/SkewCalculator',
+        path: '/skew-calculator',
       },
     ],
   },
@@ -81,7 +81,7 @@ const sidebarData = [
       {
         title: 'Sequence Search',
         icon: <PatternSearchIcon />,
-        path: '/SearchSequence',
+        path: '/search-sequence',
       },
     ],
   },
