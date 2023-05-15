@@ -1,7 +1,7 @@
 import Rodal from "rodal";
 import { DataContext } from "../../context/DataContext";
 import styles from "./SkewCalculator.module.scss";
-import { createRef, useContext, useRef, useState } from "react";
+import { createRef, useContext,  useState } from "react";
 import FileInput from "../../components/FileInput/FileInput";
 import Select from "react-select";
 import * as htmlToImage from "html-to-image";
@@ -23,7 +23,6 @@ import { toast } from "react-hot-toast";
 
 const SkewCalculator = () => {
   const { currentFile, currentFileName } = useContext(DataContext);
-  const [expInput, setExpInput] = useState("");
   const ref = createRef(null);
 
   const [data, setData] = useState([]);

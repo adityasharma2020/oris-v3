@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../../context/DataContext";
 import styles from "./SearchSequencePage.module.scss";
 import FileInput from "../../components/FileInput/FileInput";
