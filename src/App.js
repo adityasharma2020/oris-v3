@@ -10,6 +10,14 @@ import GcSkewPage from "./pages/GcSkewPage/GcSkewPage";
 import AtSkewPage from "./pages/AtSkewPage/AtSkewPage";
 import SearchSequencePage from "./pages/SearchSequencePage/SearchSequencePage";
 import SkewCalculator from "./pages/SkewCalculator/SkewCalculator";
+import MkSkewPage from "./pages/MkSkewPage/MkSkewPage";
+import RySkewPage from "./pages/RySkewPage/RySkewPage";
+import CummulativeGcSkewPage from "./pages/CummulativeGcSkewPage/CummulativeGcSkewPage";
+import CummulativeAtSkewPage from "./pages/CummulativeAtSkewPage/CummulativeAtSkewPage";
+import CummulativeMkSkewPage from "./pages/CummulativeMkSkewPage/CummulativeMkSkewPage";
+import CummulativeRySkewPage from "./pages/CummulativeRySkewPage/CummulativeRySkewPage";
+import DnaBox from "./pages/DnaBox/DnaBox";
+
 
 function App() {
   return (
@@ -43,7 +51,17 @@ function ProtectedRoutes() {
           <Route path="/" element={<HomePage />} />
           <Route path="/gc-skew" element={<GcSkewPage />} />
           <Route path="/at-skew" element={<AtSkewPage />} />
+          <Route path="/mk-skew" element={<MkSkewPage />} />
+          <Route path="/ry-skew" element={<RySkewPage />} />
+          <Route path="/cumulative-gc-Skew" element={<CummulativeGcSkewPage />} />
+          <Route path="/cumulative-at-Skew" element={<CummulativeAtSkewPage />} />
+          <Route path="/cumulative-mk-Skew" element={<CummulativeMkSkewPage />} />
+          <Route path="/cumulative-ry-Skew" element={<CummulativeRySkewPage />} />
+          
           <Route path="/search-sequence" element={<SearchSequencePage />} />
+          <Route path="/dna-box" element={<DnaBox />} />
+          
+
           <Route path="/skew-calculator" element={<SkewCalculator />} />
         </Routes>
       </div>

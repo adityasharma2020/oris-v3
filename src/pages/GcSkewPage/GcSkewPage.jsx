@@ -56,7 +56,7 @@ export default function GcSkewPage() {
 
       results.push({
         name: startIndex + 1,
-        window_number: (numberOfC - numberOfG) / (numberOfG + numberOfC),
+        window_number: (numberOfG - numberOfC) / (numberOfG + numberOfC),
       });
       startIndex = startIndex + 1;
     }
@@ -127,7 +127,7 @@ export default function GcSkewPage() {
                   offset={0}
                   position="center"
                   angle="-90"
-                  style={{ fill: "#fff" }}
+                  style={{ fill: "#000" }}
                 />
               </YAxis>
               <Tooltip />

@@ -1,10 +1,10 @@
-import Rodal from "rodal";
-import { DataContext } from "../../context/DataContext";
-import styles from "./SkewCalculator.module.scss";
-import { createRef, useContext,  useState } from "react";
-import FileInput from "../../components/FileInput/FileInput";
-import Select from "react-select";
-import * as htmlToImage from "html-to-image";
+import Rodal from 'rodal';
+import { DataContext } from '../../context/DataContext';
+import styles from './SkewCalculator.module.scss';
+import { createRef, useContext, useState } from 'react';
+import FileInput from '../../components/FileInput/FileInput';
+import Select from 'react-select';
+import * as htmlToImage from 'html-to-image';
 
 import {
   ComposedChart,
@@ -16,10 +16,10 @@ import {
   YAxis,
   Brush,
   Label,
-} from "recharts";
-import Card from "../../components/Card/Card";
-import { CSVLink } from "react-csv";
-import { toast } from "react-hot-toast";
+} from 'recharts';
+import Card from '../../components/Card/Card';
+import { CSVLink } from 'react-csv';
+import { toast } from 'react-hot-toast';
 
 const SkewCalculator = () => {
   const { currentFile, currentFileName } = useContext(DataContext);
@@ -31,32 +31,32 @@ const SkewCalculator = () => {
   const [increment, setIncrement] = useState(10000);
 
   const numberOption = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-    { value: "4", label: "4" },
-    { value: "5", label: "5" },
-    { value: "6", label: "6" },
-    { value: "7", label: "7" },
-    { value: "8", label: "8" },
-    { value: "9", label: "9" },
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+    { value: '3', label: '3' },
+    { value: '4', label: '4' },
+    { value: '5', label: '5' },
+    { value: '6', label: '6' },
+    { value: '7', label: '7' },
+    { value: '8', label: '8' },
+    { value: '9', label: '9' },
   ];
   const textOption = [
-    { value: "A", label: "A" },
-    { value: "T", label: "T" },
-    { value: "G", label: "G" },
-    { value: "C", label: "C" },
-    { value: "R", label: "R" },
-    { value: "Y", label: "Y" },
-    { value: "K", label: "K" },
-    { value: "M", label: "M" },
-    { value: "W", label: "W" },
+    { value: 'A', label: 'A' },
+    { value: 'T', label: 'T' },
+    { value: 'G', label: 'G' },
+    { value: 'C', label: 'C' },
+    { value: 'R', label: 'R' },
+    { value: 'Y', label: 'Y' },
+    { value: 'K', label: 'K' },
+    { value: 'M', label: 'M' },
+    { value: 'W', label: 'W' },
   ];
   const operatorOption = [
-    { value: "+", label: "+" },
-    { value: "-", label: "-" },
-    { value: "*", label: "*" },
-    { value: "/", label: "/" },
+    { value: '+', label: '+' },
+    { value: '-', label: '-' },
+    { value: '*', label: '*' },
+    { value: '/', label: '/' },
   ];
 
   const [firstInput, setFirstInput] = useState(numberOption[0]);
@@ -85,16 +85,16 @@ const SkewCalculator = () => {
 
     let results = [];
     let mathItUp = {
-      "+": function (x, y) {
+      '+': function (x, y) {
         return x + y;
       },
-      "-": function (x, y) {
+      '-': function (x, y) {
         return x - y;
       },
-      "*": function (x, y) {
+      '*': function (x, y) {
         return x * y;
       },
-      "/": function (x, y) {
+      '/': function (x, y) {
         return x / y;
       },
     };
@@ -111,82 +111,82 @@ const SkewCalculator = () => {
       let numberOfM = numberOfA || numberOfC;
       let numberOfW = numberOfA || numberOfT;
 
-      if (secondInput.value === "A") {
+      if (secondInput.value === 'A') {
         secondInputValue = numberOfA;
-      } else if (secondInput.value === "T") {
+      } else if (secondInput.value === 'T') {
         secondInputValue = numberOfT;
-      } else if (secondInput.value === "C") {
+      } else if (secondInput.value === 'C') {
         secondInputValue = numberOfC;
-      } else if (secondInput.value === "G") {
+      } else if (secondInput.value === 'G') {
         secondInputValue = numberOfG;
-      } else if (secondInput.value === "R") {
+      } else if (secondInput.value === 'R') {
         secondInputValue = numberOfR;
-      } else if (secondInput.value === "Y") {
+      } else if (secondInput.value === 'Y') {
         secondInputValue = numberOfY;
-      } else if (secondInput.value === "K") {
+      } else if (secondInput.value === 'K') {
         secondInputValue = numberOfK;
-      } else if (secondInput.value === "M") {
+      } else if (secondInput.value === 'M') {
         secondInputValue = numberOfM;
-      } else if (secondInput.value === "W") {
+      } else if (secondInput.value === 'W') {
         secondInputValue = numberOfW;
       }
 
-      if (fifthInput.value === "A") {
+      if (fifthInput.value === 'A') {
         fifthInputValue = numberOfA;
-      } else if (fifthInput.value === "T") {
+      } else if (fifthInput.value === 'T') {
         fifthInputValue = numberOfT;
-      } else if (fifthInput.value === "C") {
+      } else if (fifthInput.value === 'C') {
         fifthInputValue = numberOfC;
-      } else if (fifthInput.value === "G") {
+      } else if (fifthInput.value === 'G') {
         fifthInputValue = numberOfG;
-      } else if (fifthInput.value === "R") {
+      } else if (fifthInput.value === 'R') {
         fifthInputValue = numberOfR;
-      } else if (fifthInput.value === "Y") {
+      } else if (fifthInput.value === 'Y') {
         fifthInputValue = numberOfY;
-      } else if (fifthInput.value === "K") {
+      } else if (fifthInput.value === 'K') {
         fifthInputValue = numberOfK;
-      } else if (fifthInput.value === "M") {
+      } else if (fifthInput.value === 'M') {
         fifthInputValue = numberOfM;
-      } else if (fifthInput.value === "W") {
+      } else if (fifthInput.value === 'W') {
         fifthInputValue = numberOfW;
       }
 
-      if (sevenInput.value === "A") {
+      if (sevenInput.value === 'A') {
         sevenInputValue = numberOfA;
-      } else if (sevenInput.value === "T") {
+      } else if (sevenInput.value === 'T') {
         sevenInputValue = numberOfT;
-      } else if (sevenInput.value === "C") {
+      } else if (sevenInput.value === 'C') {
         sevenInputValue = numberOfC;
-      } else if (sevenInput.value === "G") {
+      } else if (sevenInput.value === 'G') {
         sevenInputValue = numberOfG;
-      } else if (sevenInput.value === "R") {
+      } else if (sevenInput.value === 'R') {
         sevenInputValue = numberOfR;
-      } else if (sevenInput.value === "Y") {
+      } else if (sevenInput.value === 'Y') {
         sevenInputValue = numberOfY;
-      } else if (sevenInput.value === "K") {
+      } else if (sevenInput.value === 'K') {
         sevenInputValue = numberOfK;
-      } else if (sevenInput.value === "M") {
+      } else if (sevenInput.value === 'M') {
         sevenInputValue = numberOfM;
-      } else if (sevenInput.value === "W") {
+      } else if (sevenInput.value === 'W') {
         sevenInputValue = numberOfW;
       }
-      if (tenIinput.value === "A") {
+      if (tenIinput.value === 'A') {
         tenInputValue = numberOfA;
-      } else if (tenIinput.value === "T") {
+      } else if (tenIinput.value === 'T') {
         tenInputValue = numberOfT;
-      } else if (tenIinput.value === "C") {
+      } else if (tenIinput.value === 'C') {
         tenInputValue = numberOfC;
-      } else if (tenIinput.value === "G") {
+      } else if (tenIinput.value === 'G') {
         tenInputValue = numberOfG;
-      } else if (tenIinput.value === "R") {
+      } else if (tenIinput.value === 'R') {
         tenInputValue = numberOfR;
-      } else if (tenIinput.value === "Y") {
+      } else if (tenIinput.value === 'Y') {
         tenInputValue = numberOfY;
-      } else if (tenIinput.value === "K") {
+      } else if (tenIinput.value === 'K') {
         tenInputValue = numberOfK;
-      } else if (tenIinput.value === "M") {
+      } else if (tenIinput.value === 'M') {
         tenInputValue = numberOfM;
-      } else if (tenIinput.value === "W") {
+      } else if (tenIinput.value === 'W') {
         tenInputValue = numberOfW;
       }
 
@@ -223,56 +223,55 @@ const SkewCalculator = () => {
   const colourStyles = {
     control: (styles) => ({
       ...styles,
-      backgroundColor: "white",
-      fontSize: "2rem",
-      width: "10rem",
+      backgroundColor: 'white',
+      fontSize: '2rem',
+      width: '10rem',
     }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
       return {
         ...styles,
-        fontSize: "2rem",
-        backgroundColor: isSelected ? "#000" : "#fff",
-        color: isSelected ? "#fff" : "#000",
-        cursor: isDisabled ? "not-allowed" : "default",
+        fontSize: '2rem',
+        backgroundColor: isSelected ? '#000' : '#fff',
+        color: isSelected ? '#fff' : '#000',
+        cursor: isDisabled ? 'not-allowed' : 'default',
       };
     },
   };
 
   const getImage = async () => {
-    toast.success("Please wait image is being processing...");
+    toast.success('Please wait image is being processing...');
     const dataUrl = await htmlToImage.toPng(ref.current);
 
     // download image
-    const link = document.createElement("a");
-    link.download = "GCSkew_CSV_DATA.png";
+    const link = document.createElement('a');
+    link.download = currentFile + '_CSV_DATA.png';
     link.href = dataUrl;
     link.click();
   };
   const csvReport = {
     data: data,
     headers: [
-      { label: "X value", key: "name" },
-      { label: "Y value", key: "window_number" },
+      { label: 'X value', key: 'name' },
+      { label: 'Y value', key: 'window_number' },
     ],
-    filename: "GCSkew_CSV_DATA.csv",
+    filename: currentFile + '_CSV_DATA.csv',
   };
-
 
   return currentFile ? (
     <div className={styles.container}>
       <Rodal
         visible={modalVisible}
         showCloseButton={false}
-        width="600"
-        height="300"
+        width='600'
+        height='300'
       >
         <h1>Choose Window-size and Increment</h1>
 
         <label className={styles.input}>
           <input
             className={styles.input__field}
-            type="text"
-            placeholder=" "
+            type='text'
+            placeholder=' '
             value={windowSize}
             onChange={(e) => setWindowSize(+e.target.value)}
           />
@@ -282,8 +281,8 @@ const SkewCalculator = () => {
         <label className={styles.input}>
           <input
             className={styles.input__field}
-            type="text"
-            placeholder=" "
+            type='text'
+            placeholder=' '
             value={increment}
             onChange={(e) => setIncrement(+e.target.value)}
           />
@@ -296,10 +295,10 @@ const SkewCalculator = () => {
       </Rodal>
       {!modalVisible ? (
         <>
-          <h1>Fill the below fields in the required format</h1>
+          <h1>Fill the below fields in the required format. Example : (2G - 3C / 2G + 4C )</h1>
           <form>
             <div className={`${styles.inputs} ${styles.first}`}>
-              {" "}
+              {' '}
               <h1>(</h1>
               <Select
                 defaultValue={firstInput}
@@ -330,7 +329,7 @@ const SkewCalculator = () => {
                 onChange={setfifthInput}
                 options={textOption}
                 styles={colourStyles}
-              />{" "}
+              />{' '}
               <h1>)</h1>
               <div className={styles.divide}>/</div>
             </div>
@@ -366,19 +365,19 @@ const SkewCalculator = () => {
                 onChange={setTenInput}
                 options={textOption}
                 styles={colourStyles}
-              />{" "}
+              />{' '}
               <h1>)</h1>
             </div>
           </form>
 
-          <button className={styles.searchButton} name="←" onClick={handleGo}>
+          <button className={styles.searchButton} name='←' onClick={handleGo}>
             Go
           </button>
 
           {data.length ? (
             <>
               <Card
-                title={"Gc Skew   - " + currentFileName}
+                title={" Filename : "+currentFileName}
                 className={styles.graphCard}
                 ref={ref}
               >
@@ -388,38 +387,49 @@ const SkewCalculator = () => {
                   data={data}
                   className={styles.brushChart}
                 >
-                  <XAxis dataKey="name"></XAxis>
+                  <XAxis dataKey='name'></XAxis>
                   <YAxis>
                     <Label
-                      value="C-G / C+G"
+                      value={
+                      "( "+ firstInput.value +
+                          secondInput.value +
+                          thirdInput.value +
+                          fourthInput.value +
+                          fifthInput.value + " ) / " 
+                        +sixInput.value +
+                          sevenInput.value +
+                          eightInput.value +
+                          nineInput.value +
+                          tenIinput.value + " ) "
+                      }
                       offset={0}
-                      position="center"
-                      angle="-90"
-                      style={{ fill: "#fff" }}
+                      position='center'
+                      angle='-90'
+                      style={{ fill: '#000' }}
                     />
                   </YAxis>
                   <Tooltip />
                   <Legend />
-                  <CartesianGrid stroke="#f5f5f5" />
+                  <CartesianGrid stroke='#f5f5f5' />
                   <Line
-                    type="monotone"
-                    dataKey="window_number"
-                    stroke="#89023E"
+                    type='monotone'
+                    dataKey='window_number'
+                    stroke='#89023E'
                   />
-                  <Brush startIndex={1} endIndex={280} dataKey="name" />
+                  <Brush startIndex={1} endIndex={280} dataKey='name' />
                 </ComposedChart>
               </Card>
               <CSVLink
                 className={styles.submitButton}
                 {...csvReport}
                 onClick={() => {
-                  toast.success("Please wait csv is being rendering...");
+                  toast.success('Please wait csv is being rendering...');
                 }}
               >
                 Export to CSV
               </CSVLink>
               <button
-                style={{ marginTop: "2rem" }}
+                style={{ marginTop: '2rem' }}
                 className={styles.submitButton}
                 onClick={getImage}
               >

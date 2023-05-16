@@ -1,8 +1,8 @@
-import styles from './AtSkewPage.module.scss';
-import React, { createRef } from 'react';
-import { useContext, useState } from 'react';
-import { DataContext } from '../../context/DataContext';
-import FileInput from '../../components/FileInput/FileInput';
+import styles from "./CummulativeMkSkewPage.module.scss";
+import React, { createRef } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "../../context/DataContext";
+import FileInput from "../../components/FileInput/FileInput";
 // import "./BrushRechart.scss";
 
 import {
@@ -15,15 +15,15 @@ import {
   YAxis,
   Brush,
   Label,
-} from 'recharts';
+} from "recharts";
 // import _ from "lodash";
-import Rodal from 'rodal';
-import { CSVLink } from 'react-csv';
-import Card from '../../components/Card/Card';
-import * as htmlToImage from 'html-to-image';
-import { toast } from 'react-hot-toast';
+import Rodal from "rodal";
+import { CSVLink } from "react-csv";
+import Card from "../../components/Card/Card";
+import * as htmlToImage from "html-to-image";
+import { toast } from "react-hot-toast";
 
-export default function AtSkewPage() {
+export default function CummulativeMkSkewPage() {
   const { currentFile, currentFileName } = useContext(DataContext);
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
@@ -32,12 +32,12 @@ export default function AtSkewPage() {
 
   const ref = createRef(null);
   const getImage = async () => {
-    toast.success('Please wait image is being processing...');
+    toast.success("Please wait image is being processing...");
     const dataUrl = await htmlToImage.toPng(ref.current);
 
     // download image
-    const link = document.createElement('a');
-    link.download = 'ATSkew_CSV_DATA.png';
+    const link = document.createElement("a");
+    link.download = "CummulativeMkSkewPage_CSV_DATA.png";
     link.href = dataUrl;
     link.click();
   };
@@ -49,14 +49,24 @@ export default function AtSkewPage() {
 
     let results = [];
 
+    let tempValue = 0;
     for (let i = startIndex; i < endIndex; i += increment) {
       let substring = currentFile.substring(i, i + windowSize);
+      let numberOfC = substring.match(/C/g).length;
+      let numberOfG = substring.match(/G/g).length;
       let numberOfA = substring.match(/A/g).length;
       let numberOfT = substring.match(/T/g).length;
+      
+      let numberOfK = numberOfG || numberOfT;
+      let numberOfM = numberOfA || numberOfC;
+      
+     
 
+      tempValue = (numberOfM - numberOfK) / (numberOfK + numberOfM)+tempValue
+     
       results.push({
         name: startIndex + 1,
-        window_number: (numberOfA - numberOfT) / (numberOfT + numberOfA),
+        window_number: tempValue,
       });
       startIndex = startIndex + 1;
     }
@@ -65,10 +75,10 @@ export default function AtSkewPage() {
   const csvReport = {
     data: data,
     headers: [
-      { label: 'X value', key: 'name' },
-      { label: 'Y value', key: 'window_number' },
+      { label: "X value", key: "name" },
+      { label: "Y value", key: "window_number" },
     ],
-    filename: 'ATSkew_CSV_DATA.csv',
+    filename: "CummulativeMkSkewPage_CSV_DATA.csv",
   };
 
   return currentFile ? (
@@ -76,16 +86,16 @@ export default function AtSkewPage() {
       <Rodal
         visible={modalVisible}
         showCloseButton={false}
-        width='600'
-        height='300'
+        width="600"
+        height="300"
       >
         <h1>Choose Window-size and Increment</h1>
 
         <label className={styles.input}>
           <input
             className={styles.input__field}
-            type='text'
-            placeholder=' '
+            type="text"
+            placeholder=" "
             value={windowSize}
             onChange={(e) => setWindowSize(+e.target.value)}
           />
@@ -95,8 +105,8 @@ export default function AtSkewPage() {
         <label className={styles.input}>
           <input
             className={styles.input__field}
-            type='text'
-            placeholder=' '
+            type="text"
+            placeholder=" "
             value={increment}
             onChange={(e) => setIncrement(+e.target.value)}
           />
@@ -110,7 +120,7 @@ export default function AtSkewPage() {
       {!modalVisible ? (
         <>
           <Card
-            title={'At Skew   - ' + currentFileName}
+            title={"CummulativeMkSkewPage   - " + currentFileName}
             className={styles.graphCard}
             ref={ref}
           >
@@ -120,34 +130,34 @@ export default function AtSkewPage() {
               data={data}
               className={styles.brushChart}
             >
-              <XAxis dataKey='name'></XAxis>
+              <XAxis dataKey="name"></XAxis>
               <YAxis>
                 <Label
-                  value='A - T/ A + T'
+                  value="Cummulative MK Skew"
                   offset={0}
-                  position='center'
-                  angle='-90'
-                  style={{ fill: '#000' }}
+                  position="center"
+                  angle="-90"
+                  style={{ fill: "#000" }}
                 />
               </YAxis>
               <Tooltip />
               <Legend />
-              <CartesianGrid stroke='#f5f5f5' />
-              <Line type='monotone' dataKey='window_number' stroke='#89023E' />
-              <Brush startIndex={1} endIndex={280} dataKey='name' />
+              <CartesianGrid stroke="#f5f5f5" />
+              <Line type="monotone" dataKey="window_number" stroke="#89023E" />
+              <Brush startIndex={1} endIndex={280} dataKey="name" />
             </ComposedChart>
           </Card>
           <CSVLink
             className={styles.submitButton}
             {...csvReport}
             onClick={() => {
-              toast.success('Please wait csv is being rendering...');
+              toast.success("Please wait csv is being rendering...");
             }}
           >
             Export to CSV
           </CSVLink>
           <button
-            style={{ marginTop: '2rem' }}
+            style={{ marginTop: "2rem" }}
             className={styles.submitButton}
             onClick={getImage}
           >

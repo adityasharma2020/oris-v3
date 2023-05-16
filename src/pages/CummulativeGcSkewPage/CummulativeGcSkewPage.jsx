@@ -1,4 +1,4 @@
-import styles from './AtSkewPage.module.scss';
+import styles from './CummulativeGcSkewPage.module.scss';
 import React, { createRef } from 'react';
 import { useContext, useState } from 'react';
 import { DataContext } from '../../context/DataContext';
@@ -23,7 +23,7 @@ import Card from '../../components/Card/Card';
 import * as htmlToImage from 'html-to-image';
 import { toast } from 'react-hot-toast';
 
-export default function AtSkewPage() {
+export default function CummulativeGcSkewPage() {
   const { currentFile, currentFileName } = useContext(DataContext);
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
@@ -37,7 +37,7 @@ export default function AtSkewPage() {
 
     // download image
     const link = document.createElement('a');
-    link.download = 'ATSkew_CSV_DATA.png';
+    link.download = 'cumulative-gc-Skew_CSV_DATA.png';
     link.href = dataUrl;
     link.click();
   };
@@ -49,17 +49,33 @@ export default function AtSkewPage() {
 
     let results = [];
 
+    let tempValue = 0;
     for (let i = startIndex; i < endIndex; i += increment) {
       let substring = currentFile.substring(i, i + windowSize);
-      let numberOfA = substring.match(/A/g).length;
-      let numberOfT = substring.match(/T/g).length;
+      let numberOfC = substring.match(/C/g).length;
+      let numberOfG = substring.match(/G/g).length;
+
+      tempValue = (numberOfC - numberOfG) / (numberOfG + numberOfC) + tempValue;
 
       results.push({
         name: startIndex + 1,
-        window_number: (numberOfA - numberOfT) / (numberOfT + numberOfA),
+        window_number: tempValue,
       });
       startIndex = startIndex + 1;
     }
+
+    // const yArray = results.map(value => value.window_number);
+    // const updatedYArray = yArray.map(value => {
+    //   tempValue = value+tempValue
+    //   return tempValue;
+    // })
+
+    // const updatedResults = results.map((value, index)=>{
+    //   return {
+    //     ...value,
+    //     window_number: updatedYArray[index]
+    //   }
+    // })
     setData(results);
   };
   const csvReport = {
@@ -68,7 +84,7 @@ export default function AtSkewPage() {
       { label: 'X value', key: 'name' },
       { label: 'Y value', key: 'window_number' },
     ],
-    filename: 'ATSkew_CSV_DATA.csv',
+    filename: 'cumulative-gc-Skew_CSV_DATA.csv',
   };
 
   return currentFile ? (
@@ -110,7 +126,7 @@ export default function AtSkewPage() {
       {!modalVisible ? (
         <>
           <Card
-            title={'At Skew   - ' + currentFileName}
+            title={'cumulativeGcSkew   - ' + currentFileName}
             className={styles.graphCard}
             ref={ref}
           >
@@ -123,7 +139,7 @@ export default function AtSkewPage() {
               <XAxis dataKey='name'></XAxis>
               <YAxis>
                 <Label
-                  value='A - T/ A + T'
+                  value='Cummulative GC Skew'
                   offset={0}
                   position='center'
                   angle='-90'

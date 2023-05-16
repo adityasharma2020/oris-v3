@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../../context/DataContext";
-import styles from "./SearchSequencePage.module.scss";
+import styles from "./DnaBox.module.scss";
 import FileInput from "../../components/FileInput/FileInput";
 import { toast } from "react-hot-toast";
 import { CSVLink } from "react-csv";
 
-const SearchSequencePage = () => {
+const DnaBox = () => {
   const [searchInput, setSearchInput] = useState("");
   const [result, setResult] = useState({
     totalMatches: null,
@@ -141,7 +141,7 @@ const SearchSequencePage = () => {
                 }
               }}
             >
-              Export all the indexes (.csv)
+              Export to CSV
             </CSVLink>
           </div>
           {loading ? (
@@ -175,4 +175,4 @@ const SearchSequencePage = () => {
   );
 };
 
-export default SearchSequencePage;
+export default DnaBox;

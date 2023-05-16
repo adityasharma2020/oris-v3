@@ -1,4 +1,4 @@
-import styles from './AtSkewPage.module.scss';
+import styles from './RySkewPage.module.scss';
 import React, { createRef } from 'react';
 import { useContext, useState } from 'react';
 import { DataContext } from '../../context/DataContext';
@@ -23,7 +23,7 @@ import Card from '../../components/Card/Card';
 import * as htmlToImage from 'html-to-image';
 import { toast } from 'react-hot-toast';
 
-export default function AtSkewPage() {
+export default function RySkewPage() {
   const { currentFile, currentFileName } = useContext(DataContext);
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
@@ -37,7 +37,7 @@ export default function AtSkewPage() {
 
     // download image
     const link = document.createElement('a');
-    link.download = 'ATSkew_CSV_DATA.png';
+    link.download = 'RYSkew_CSV_DATA.png';
     link.href = dataUrl;
     link.click();
   };
@@ -53,10 +53,16 @@ export default function AtSkewPage() {
       let substring = currentFile.substring(i, i + windowSize);
       let numberOfA = substring.match(/A/g).length;
       let numberOfT = substring.match(/T/g).length;
+      let numberOfC = substring.match(/C/g).length;
+      let numberOfG = substring.match(/G/g).length;
 
+      let numberOfM = numberOfA || numberOfC;
+      let numberOfK = numberOfG || numberOfT;
+      let numberOfR = numberOfA || numberOfG;
+      let numberOfY = numberOfC || numberOfT;
       results.push({
         name: startIndex + 1,
-        window_number: (numberOfA - numberOfT) / (numberOfT + numberOfA),
+        window_number: (numberOfR - numberOfY) / (numberOfR + numberOfY),
       });
       startIndex = startIndex + 1;
     }
@@ -68,7 +74,7 @@ export default function AtSkewPage() {
       { label: 'X value', key: 'name' },
       { label: 'Y value', key: 'window_number' },
     ],
-    filename: 'ATSkew_CSV_DATA.csv',
+    filename: 'RYSkew_CSV_DATA.csv',
   };
 
   return currentFile ? (
@@ -110,7 +116,7 @@ export default function AtSkewPage() {
       {!modalVisible ? (
         <>
           <Card
-            title={'At Skew   - ' + currentFileName}
+            title={'RY Skew   - ' + currentFileName}
             className={styles.graphCard}
             ref={ref}
           >
@@ -123,7 +129,7 @@ export default function AtSkewPage() {
               <XAxis dataKey='name'></XAxis>
               <YAxis>
                 <Label
-                  value='A - T/ A + T'
+                  value='R - Y/ R + Y'
                   offset={0}
                   position='center'
                   angle='-90'

@@ -4,6 +4,9 @@ import { ReactComponent as SkewIcon } from '../assets/icons/skew_icon.svg';
 import { ReactComponent as SettingIcon } from '../assets/icons/setting_icon.svg';
 import { ReactComponent as CalculatorIcon } from '../assets/icons/calculator_icon.svg';
 import { ReactComponent as CumulativeIcon } from '../assets/icons/cumulative_icon.svg';
+import { ReactComponent as ComposeIcon } from '../assets/icons/Vector.svg';
+import { ReactComponent as InfoIcon } from '../assets/icons/Vector-1.svg';
+import { ReactComponent as HelpIcon } from '../assets/icons/Vector-2.svg';
 
 const sidebarData = [
   {
@@ -21,22 +24,22 @@ const sidebarData = [
               {
                 title: 'Cumulative GC',
                 icon: <CumulativeIcon />,
-                path: '/CumulativeGcSkew',
+                path: '/cumulative-gc-Skew',
               },
               {
                 title: 'Cumulative AT',
                 icon: <CumulativeIcon />,
-                path: '/CumulativeAtSkew',
+                path: '/cumulative-at-Skew',
               },
               {
                 title: 'Cumulative MK',
                 icon: <CumulativeIcon />,
-                path: '/CumulativeMkSkew',
+                path: '/cumulative-mk-Skew',
               },
               {
                 title: 'Cumulative RY',
                 icon: <CumulativeIcon />,
-                path: '/CumulativeRySkew',
+                path: '/cumulative-ry-Skew',
               },
             ],
           },
@@ -53,19 +56,30 @@ const sidebarData = [
           {
             title: 'MK Skew',
             icon: <SkewIcon />,
-            path: '/MkSkew',
+            path: '/mk-Skew',
           },
           {
             title: 'RY Skew',
             icon: <SkewIcon />,
-            path: '/RySkew',
+            path: '/ry-Skew',
           },
         ],
       },
       {
         title: 'Correlation Method',
         icon: <SettingIcon />,
-        path: '/CorrelationMethod',
+        childrens: [
+          {
+            title: 'Correlation By Window',
+            icon: <CumulativeIcon />,
+            path: '/correlation-by-window',
+          },
+          {
+            title: 'Correlation for whole genome',
+            icon: <CumulativeIcon />,
+            path: '/corelation-for-whole-genome',
+          },
+        ],
       },
       {
         title: 'Skew Calculator',
@@ -83,7 +97,97 @@ const sidebarData = [
         icon: <PatternSearchIcon />,
         path: '/search-sequence',
       },
+      {
+        title: 'DNaA Box',
+        icon: <PatternSearchIcon />,
+        path: '/dna-box',
+      },
+      {
+        title: 'Yeast ACS',
+        icon: <PatternSearchIcon />,
+        path: '/Yeast-ACS',
+      },
+      {
+        title: 'Extract Sequence',
+        icon: <PatternSearchIcon />,
+        path: '/extract-sequence',
+      },
     ],
+  },
+  // {
+  //   title: 'DNA Analysis',
+  //   icon: <PatternSearchIcon />,
+  //   childrens: [
+  //     {
+  //       title: 'DNA Bending Analysis',
+  //       icon: <SkewIcon />,
+  //       path: '/dna-bending-analysis',
+  //     },
+  //   ],
+  // },
+  {
+    title: 'Information',
+    icon: <InfoIcon />,
+    childrens: [
+      {
+        title: 'Shannons entrophy ',
+        icon: <InfoIcon />,
+        path: '/shannons-entrophy',
+      },
+    ],
+  },
+  {
+    title: 'Composition',
+    icon: <ComposeIcon />,
+    childrens: [
+      {
+        title: 'Neucleotide',
+        icon: <ComposeIcon />,
+        childrens: [
+          {
+            title: 'Composition Of A',
+            icon: <ComposeIcon />,
+            path: '/composition-of-A',
+          },
+          {
+            title: 'Composition Of T',
+            icon: <ComposeIcon />,
+            path: '/composition-of-T',
+          },
+          {
+            title: 'Composition Of G',
+            icon: <ComposeIcon />,
+            path: '/composition-of-G',
+          },
+          {
+            title: 'Composition Of C',
+            icon: <ComposeIcon />,
+            path: '/composition-of-C',
+          },
+        ],
+      },
+      {
+        title: 'Pyr / Pur',
+        icon: <ComposeIcon />,
+        childrens: [
+          {
+            title: 'pyridine',
+            icon: <ComposeIcon />,
+            path: '/pyridine',
+          },
+          {
+            title: 'Purine',
+            icon: <ComposeIcon />,
+            path: '/purine',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Help',
+    icon: <HelpIcon />,
+    path: '/help',
   },
 ];
 
