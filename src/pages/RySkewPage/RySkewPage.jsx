@@ -56,8 +56,6 @@ export default function RySkewPage() {
       let numberOfC = substring.match(/C/g).length;
       let numberOfG = substring.match(/G/g).length;
 
-      let numberOfM = numberOfA || numberOfC;
-      let numberOfK = numberOfG || numberOfT;
       let numberOfR = numberOfA || numberOfG;
       let numberOfY = numberOfC || numberOfT;
       results.push({
