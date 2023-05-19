@@ -65,7 +65,7 @@ export default function RySkewPage() {
       startIndex = startIndex + 1;
     }
     setData(results);
-  };
+  }; 
   const csvReport = {
     data: data,
     headers: [

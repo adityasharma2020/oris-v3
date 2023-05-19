@@ -7,6 +7,7 @@ import { ReactComponent as CumulativeIcon } from '../assets/icons/cumulative_ico
 import { ReactComponent as ComposeIcon } from '../assets/icons/Vector.svg';
 import { ReactComponent as InfoIcon } from '../assets/icons/Vector-1.svg';
 import { ReactComponent as HelpIcon } from '../assets/icons/Vector-2.svg';
+import { ReactComponent as HistogramIcon } from '../assets/icons/histogram_icon.svg';
 
 const sidebarData = [
   {
@@ -183,6 +184,11 @@ const sidebarData = [
         ],
       },
     ],
+  },
+  {
+    title: 'Dispersion Graph',
+    icon: <HistogramIcon />,
+    path: '/dispersion-graph',
   },
   {
     title: 'Help',
