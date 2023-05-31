@@ -4,9 +4,9 @@ import styles from "./DnaBox.module.scss";
 import FileInput from "../../components/FileInput/FileInput";
 import { toast } from "react-hot-toast";
 import { CSVLink } from "react-csv";
+import Select from "react-select";
 
 const DnaBox = () => {
-  const [searchInput, setSearchInput] = useState("");
   const [result, setResult] = useState({
     totalMatches: null,
     exactMatches: null,
@@ -17,11 +17,23 @@ const DnaBox = () => {
 
   const { currentFile } = useContext(DataContext);
 
+  const textOption = [
+    { value: "TTATMCACA", label: "Haemophilus:TTATMCACA" },
+    { value: "TCATTCACA", label: "Helicobacter:TCATTCACA" },
+    { value: "TGTTTCACG", label: "Nitrobacter:TGTTTCACG" },
+    { value: "TTWTCCACA", label: "Mycoplasma:TTWTCCACA" },
+    { value: "TTTTCCACA", label: "Prochorales:TTTTCCACA" },
+    { value: "TTTTCCACA", label: "Synechococcus:TTTTCCACA" },
+    { value: "CCTACCACC", label: "Thermotoga:CCTACCACC" },
+    { value: "ATGATCAAG", label: "Vibrio:ATGATCAAG" },
+  ];
+  const [searchInput, setSearchInput] = useState(textOption[3]);
+
   const handleSearch = () => {
-    const pattern = new RegExp(searchInput, "g");
+    const pattern = new RegExp(searchInput?.value, "g");
     const matches = currentFile.match(pattern);
 
-    if (matches && searchInput) {
+    if (matches && searchInput?.value) {
       toast.success("Pattern succesfully found!");
       setResult((prev) => ({ ...prev, totalMatches: matches.length }));
     } else {
@@ -42,11 +54,11 @@ const DnaBox = () => {
   }
 
   const handleFindAllIndex = () => {
-    const pattern = new RegExp(searchInput, "g");
+    const pattern = new RegExp(searchInput?.value, "g");
     // toast.success("Please wait data in processing...");
 
     setLoading(true);
-    if (searchInput) {
+    if (searchInput?.value) {
       asyncFunction(pattern, currentFile)
         .then(function (result) {
           // toast.success("");
@@ -70,21 +82,35 @@ const DnaBox = () => {
     filename: "SearchResult_CSV_DATA.csv",
   };
 
+  const colourStyles = {
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: "white",
+      fontSize: "2rem",
+    }),
+    option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+      return {
+        ...styles,
+        fontSize: "2rem",
+        backgroundColor: isSelected ? "#000" : "#fff",
+        color: isSelected ? "#fff" : "#000",
+        cursor: isDisabled ? "not-allowed" : "default",
+      };
+    },
+  };
+
   return currentFile ? (
     <div className={styles.container}>
-      <h1>Enter pattern to search</h1>
+      <h1>Select pattern to search</h1>
       <form>
-        <input
-          onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
-          placeholder="Enter here"
-          value={searchInput}
+        <Select
+          defaultValue={searchInput}
+          onChange={setSearchInput}
+          options={textOption}
+          styles={colourStyles}
         />
       </form>
 
-      <p>
-        Enter A, G, C, T or R:Purine, Y:Pyrimidine, W: Weak, S: Strong, M:
-        Amino, K: Keto, X: Any Base
-      </p>
       <button className={styles.searchButton} onClick={handleSearch}>
         Search
       </button>
@@ -93,7 +119,8 @@ const DnaBox = () => {
         <>
           {" "}
           <p className={styles.result}>
-            Searched for the string "{searchInput}" with exactly 0 mismatches:
+            Searched for the string "{searchInput?.value}" with exactly 0
+            mismatches:
           </p>{" "}
           <div className={styles.tableContainer}>
             <table className={styles.table}>

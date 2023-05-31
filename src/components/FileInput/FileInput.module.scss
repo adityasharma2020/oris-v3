@@ -80,4 +80,49 @@
       cursor: pointer;
     }
   }
+
+  .submitButton {
+    appearance: button;
+    background-color: $color-black;
+    background-image: none;
+    border: 1px solid $color-black;
+    border-radius: 0.5rem;
+    box-shadow: $color-white 0.5rem 0.5rem 0 0, $color-black 0.5rem 0.5rem 0 1px;
+    box-sizing: border-box;
+    color: $color-white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    // margin: 0 auto;
+    width: min-content;
+    display: block;
+    overflow: visible;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+      outline: 0;
+    }
+
+    &:not([disabled]):active {
+      box-shadow: $color-white 2px 2px 0 0, $color-black 2px 2px 0 1px;
+      transform: translate(2px, 2px);
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { ReactComponent as ChevronIcon } from "../../assets/icons/bottom_chevron.svg";
 
 const Card = forwardRef(function Card(
-  { children, title, subTitle, type, className },
+  { children, title, subTitle, type, className, headerButton },
   ref
 ) {
   return (
@@ -25,6 +25,8 @@ const Card = forwardRef(function Card(
             </div>
           </div>
         ) : null}
+
+        {headerButton ? headerButton : null}
       </div>
       {children}
     </div>

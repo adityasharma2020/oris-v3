@@ -30,9 +30,17 @@ const FileInput = ({ className }) => {
     };
   };
 
-  const handleUpload = () => {
-    const fileUrl = require("../../assets/GCF_000005845.2_ASM584v2_genomic.fna");
-    const fileName = "GCF_000005845.2_ASM584v2_genomic.fna";
+  const handleUpload = (params) => {
+    let fileUrl;
+    let fileName;
+
+    if (params === 1) {
+      fileUrl = require("../../assets/GCF_000005845.2_ASM584v2_genomic.fna");
+      fileName = "GCF_000005845.2_ASM584v2_genomic.fna";
+    } else if (params === 2) {
+      fileUrl = require("../../assets/GCF_000009045.1_ASM904v1_genomic.fna");
+      fileName = "GCF_000009045.1_ASM904v1_genomic.fna";
+    }
 
     fetch(fileUrl)
       .then((response) => response.blob())
@@ -54,6 +62,16 @@ const FileInput = ({ className }) => {
       <Card
         title="Upload a file from your machine"
         className={styles.inputCard}
+        headerButton={
+          <a
+            href="https://www.ncbi.nlm.nih.gov/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.submitButton}
+          >
+            Download from NCBI
+          </a>
+        }
       >
         <label for="images" class={styles.dropContainer}>
           <span class={styles.dropTitle}>Drop files here</span>
@@ -63,7 +81,10 @@ const FileInput = ({ className }) => {
       </Card>
       <Card title="Select a file from below options">
         <div className={styles.fileuploads}>
-          <div className={styles.file} onClick={handleUpload}>
+          <div className={styles.file} onClick={() => handleUpload(2)}>
+            GCF_000009045.1_ASM904v1_genomic.fna
+          </div>
+          <div className={styles.file} onClick={() => handleUpload(1)}>
             GCF_000005845.2_ASM584v2_genomic.fna
           </div>
         </div>

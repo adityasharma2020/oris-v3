@@ -66,22 +66,22 @@ const sidebarData = [
           },
         ],
       },
-      {
-        title: 'Correlation Method',
-        icon: <SettingIcon />,
-        childrens: [
-          {
-            title: 'Correlation By Window',
-            icon: <CumulativeIcon />,
-            path: '/correlation-by-window',
-          },
-          {
-            title: 'Correlation for whole genome',
-            icon: <CumulativeIcon />,
-            path: '/corelation-for-whole-genome',
-          },
-        ],
-      },
+      // {
+      //   title: 'Correlation Method',
+      //   icon: <SettingIcon />,
+      //   childrens: [
+      //     {
+      //       title: 'Correlation By Window',
+      //       icon: <CumulativeIcon />,
+      //       path: '/correlation-by-window',
+      //     },
+      //     {
+      //       title: 'Correlation for whole genome',
+      //       icon: <CumulativeIcon />,
+      //       path: '/corelation-for-whole-genome',
+      //     },
+      //   ],
+      // },
       {
         title: 'Skew Calculator',
         icon: <CalculatorIcon />,
@@ -106,7 +106,7 @@ const sidebarData = [
       {
         title: 'Yeast ACS',
         icon: <PatternSearchIcon />,
-        path: '/Yeast-ACS',
+        path: '/yeast-acs',
       },
       {
         title: 'Extract Sequence',
@@ -126,17 +126,17 @@ const sidebarData = [
   //     },
   //   ],
   // },
-  {
-    title: 'Information',
-    icon: <InfoIcon />,
-    childrens: [
-      {
-        title: 'Shannons entrophy ',
-        icon: <InfoIcon />,
-        path: '/shannons-entrophy',
-      },
-    ],
-  },
+  // {
+  //   title: 'Information',
+  //   icon: <InfoIcon />,
+  //   childrens: [
+  //     {
+  //       title: 'Shannons entrophy ',
+  //       icon: <InfoIcon />,
+  //       path: '/shannons-entrophy',
+  //     },
+  //   ],
+  // },
   {
     title: 'Composition',
     icon: <ComposeIcon />,
@@ -148,22 +148,22 @@ const sidebarData = [
           {
             title: 'Composition Of A',
             icon: <ComposeIcon />,
-            path: '/composition-of-A',
+            path: '/composition-of-a',
           },
           {
             title: 'Composition Of T',
             icon: <ComposeIcon />,
-            path: '/composition-of-T',
+            path: '/composition-of-t',
           },
           {
             title: 'Composition Of G',
             icon: <ComposeIcon />,
-            path: '/composition-of-G',
+            path: '/composition-of-g',
           },
           {
             title: 'Composition Of C',
             icon: <ComposeIcon />,
-            path: '/composition-of-C',
+            path: '/composition-of-c',
           },
         ],
       },
