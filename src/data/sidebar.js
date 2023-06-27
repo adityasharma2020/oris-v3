@@ -1,11 +1,11 @@
 import { ReactComponent as DashboardIcon } from '../assets/icons/dashboard_icon.svg';
 import { ReactComponent as PatternSearchIcon } from '../assets/icons/pattern_search_icon.svg';
 import { ReactComponent as SkewIcon } from '../assets/icons/skew_icon.svg';
-import { ReactComponent as SettingIcon } from '../assets/icons/setting_icon.svg';
+// import { ReactComponent as SettingIcon } from '../assets/icons/setting_icon.svg';
 import { ReactComponent as CalculatorIcon } from '../assets/icons/calculator_icon.svg';
 import { ReactComponent as CumulativeIcon } from '../assets/icons/cumulative_icon.svg';
 import { ReactComponent as ComposeIcon } from '../assets/icons/Vector.svg';
-import { ReactComponent as InfoIcon } from '../assets/icons/Vector-1.svg';
+// import { ReactComponent as InfoIcon } from '../assets/icons/Vector-1.svg';
 import { ReactComponent as HelpIcon } from '../assets/icons/Vector-2.svg';
 import { ReactComponent as HistogramIcon } from '../assets/icons/histogram_icon.svg';
 
@@ -186,9 +186,16 @@ const sidebarData = [
     ],
   },
   {
-    title: 'Dispersion Graph',
+    title: 'GDWP',
     icon: <HistogramIcon />,
-    path: '/dispersion-graph',
+    fullForm: 'genome distribution by word pattern',
+    path: '/genome-distribution-by-word-pattern',
+  },
+  {
+    title: 'DDP',
+    icon: <HistogramIcon />,
+    fullForm: 'distance distribution profile',
+    path: '/Distance-distribution-profile',
   },
   {
     title: 'Help',

@@ -34,7 +34,7 @@ export default function GcSkewPage() {
   const getImage = async () => {
     toast.success("Please wait image is being processing...");
     const dataUrl = await htmlToImage.toPng(ref.current);
-
+    console.log(dataUrl);
     // download image
     const link = document.createElement("a");
     link.download = "GCSkew_CSV_DATA.png";

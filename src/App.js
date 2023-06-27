@@ -22,6 +22,7 @@ import HelpPage from "./pages/HelpPage/HelpPage";
 import YeastAcsPage from "./pages/YeastAcsPage/YeastAcsPage";
 import ExtraxtSequencePage from "./pages/ExtraxtSequencePage/ExtraxtSequencePage";
 import CompositionPage from "./pages/CompositionPage/CompositionPage";
+import DistanceDistributionProfilePage from "./pages/DistanceDistributionProfilePage/DistanceDistributionProfilePage";
 
 function App() {
   return (
@@ -73,7 +74,8 @@ function ProtectedRoutes() {
             path="/cumulative-ry-Skew"
             element={<CummulativeRySkewPage />}
           />
-          <Route path="/dispersion-graph" element={<DispersionGraphPage />} />
+          <Route path="/genome-distribution-by-word-pattern" element={<DispersionGraphPage />} />
+          <Route path="/distance-distribution-profile" element={<DistanceDistributionProfilePage />} />
 
           <Route path="/search-sequence" element={<SearchSequencePage />} />
           <Route path="/dna-box" element={<DnaBox />} />

@@ -244,7 +244,7 @@ const SkewCalculator = () => {
 
     // download image
     const link = document.createElement('a');
-    link.download = currentFile + '_CSV_DATA.png';
+    link.download = 'Skew_CSV_DATA.png';
     link.href = dataUrl;
     link.click();
   };

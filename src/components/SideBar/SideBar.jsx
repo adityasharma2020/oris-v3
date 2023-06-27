@@ -1,17 +1,18 @@
-import styles from "./SideBar.module.scss";
-import { useState } from "react";
+import styles from './SideBar.module.scss';
+import { useState } from 'react';
 
-import sidebarData from "../../data/sidebar";
+import sidebarData from '../../data/sidebar';
 
-import { ReactComponent as ChevronIcon } from "../../assets/icons/bottom_chevron.svg";
+import { ReactComponent as ChevronIcon } from '../../assets/icons/bottom_chevron.svg';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 function SideBar() {
   return (
     <div className={styles.container}>
       <div>
-        <Link to={"/"} about="h1" className={styles.header}>
+        <Link to={'/'} about='h1' className={styles.header}>
           Oris.
         </Link>
 
@@ -41,11 +42,17 @@ function SidebarItem({ item }) {
         }
       >
         <div className={styles.sidebarTitles} onClick={() => setOpen(!open)}>
-          <div className={styles.sidebarTitle}>
+          <div className={styles.sidebarTitle} id={'tooltip-' + item.title}>
             {item.icon && item.icon}
             {item.title}
           </div>
-          <div className={open ? styles.up : ""}>
+          <ReactTooltip
+            anchorId={'tooltip-' + item.title}
+            place='bottom'
+            content={item.fullForm ?? item.title}
+          />
+
+          <div className={open ? styles.up : ''}>
             <ChevronIcon />
           </div>
         </div>
@@ -59,13 +66,18 @@ function SidebarItem({ item }) {
   } else {
     return (
       <Link
-        to={item.path || "#"}
+        to={item.path || '#'}
         className={`${styles.sidebarItem} ${styles.plain}`}
       >
-        <div className={styles.sidebarTitle}>
+        <div className={styles.sidebarTitle} id={'tooltip-' + item.title}>
           {item.icon && item.icon}
           {item.title}
         </div>
+        <ReactTooltip
+          anchorId={'tooltip-' + item.title}
+          place='bottom'
+          content={item.fullForm ?? item.title}
+        />
       </Link>
     );
   }

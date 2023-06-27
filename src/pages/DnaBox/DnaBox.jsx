@@ -101,7 +101,7 @@ const DnaBox = () => {
 
   return currentFile ? (
     <div className={styles.container}>
-      <h1>Select pattern to search</h1>
+      <h1>Select option from below for : DNAaBox</h1>
       <form>
         <Select
           defaultValue={searchInput}

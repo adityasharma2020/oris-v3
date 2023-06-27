@@ -184,8 +184,8 @@ const DispersionGraphPage = () => {
                     {' '}
                     <table className={styles.table}>
                       <tr>
-                        <th>No of classes</th>
-                        <th>No of frequency</th>
+                        <th>No of frequency </th>
+                        <th>classes </th>
                       </tr>
                       {result.map((res) => (
                         <tr>
