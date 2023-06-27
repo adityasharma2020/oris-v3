@@ -1,9 +1,9 @@
-import styles from "./LoginPage.module.scss";
-import { ReactComponent as AppleIcon } from "../../assets/icons/apple_icon.svg";
-import { ReactComponent as GoogleIcon } from "../../assets/icons/google_icon.svg";
-import { signInWithGoogle } from "../../config/firebase";
-import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import styles from './LoginPage.module.scss';
+import { ReactComponent as AppleIcon } from '../../assets/icons/apple_icon.svg';
+import { ReactComponent as GoogleIcon } from '../../assets/icons/google_icon.svg';
+import { signInWithGoogle } from '../../config/firebase';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -11,14 +11,14 @@ function LoginPage() {
   const handleLogin = () => {
     signInWithGoogle()
       .then((result) => {
-        localStorage.setItem("listed-name", result.user.displayName);
-        localStorage.setItem("listed-email", result.user.email);
-        localStorage.setItem("listed-profilePic", result.user.photoURL);
-        navigate("/");
-        toast.success("Successfully loggedIn!");
+        localStorage.setItem('listed-name', result.user.displayName);
+        localStorage.setItem('listed-email', result.user.email);
+        localStorage.setItem('listed-profilePic', result.user.photoURL);
+        navigate('/');
+        toast.success('Successfully loggedIn!');
       })
       .catch((err) => {
-        toast.error("Something went wrong, Please try again");
+        toast.error('Something went wrong, Please try again');
         console.log(err);
       });
   };
@@ -42,16 +42,18 @@ function LoginPage() {
 
           <div className={styles.signInContainer}>
             <div className={styles.inputContainer}>
-              <label htmlFor="email">Email address</label>
-              <input id="email" />
+              <label htmlFor='email'>Email address</label>
+              <input id='email' />
             </div>
             <div className={styles.inputContainer}>
-              <label htmlFor="pass">Password</label>
-              <input id="pass" type="password" />
+              <label htmlFor='pass'>Password</label>
+              <input id='pass' type='password' />
             </div>
 
             <p className={styles.forgot}>Forgot password?</p>
-            <button className={styles.signInButton}>Sign In</button>
+            <button className={styles.signInButton} onClick={handleLogin}>
+              Sign In
+            </button>
           </div>
           <p className={styles.registerText}>
             Don’t have an account? <span>Register here</span>
